@@ -1,0 +1,1312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20181120 19:33:49.359" generator="Robot 3.0.4 (Python 2.7.12 on linux2)">
+<suite source="/home/fahad/AnalyticsMD/medengine/robotframework/tests/10__adminlogin.robot" id="s1" name="Adminlogin">
+<test id="s1-t1" name="1__As admin Login with valid user and valid password">
+<kw type="setup" name="Begin Test" library="admincommon">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20181120 19:33:49.635" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" endtime="20181120 19:33:51.459" starttime="20181120 19:33:49.635"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20181120 19:33:51.563" starttime="20181120 19:33:51.459"></status>
+</kw>
+<kw name="Delete All Cookies" library="SeleniumLibrary">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" endtime="20181120 19:33:51.571" starttime="20181120 19:33:51.563"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:33:51.572" starttime="20181120 19:33:49.635"></status>
+</kw>
+<kw name="Login with valid adminuser and adminpassword" library="adminlogin">
+<kw name="load adminlogin page" library="adminloginpageobj">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${ADMIN_URL}</arg>
+</arguments>
+<msg timestamp="20181120 19:33:51.574" level="INFO">Opening url 'http://localhost:8000/atc'</msg>
+<status status="PASS" endtime="20181120 19:33:53.744" starttime="20181120 19:33:51.574"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:33:53.745" starttime="20181120 19:33:51.572"></status>
+</kw>
+<kw name="Enter admin username" library="adminloginpageobj">
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=username</arg>
+<arg>${ADMIN_USERNAME}</arg>
+</arguments>
+<msg timestamp="20181120 19:33:53.747" level="INFO">Typing text 'autoadmin' into text field 'name=username'.</msg>
+<status status="PASS" endtime="20181120 19:33:53.908" starttime="20181120 19:33:53.747"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${ADMIN_USERNAME}</arg>
+</arguments>
+<msg timestamp="20181120 19:33:53.910" level="INFO">autoadmin</msg>
+<status status="PASS" endtime="20181120 19:33:53.910" starttime="20181120 19:33:53.909"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:33:53.910" starttime="20181120 19:33:53.746"></status>
+</kw>
+<kw name="Enter admin password" library="adminloginpageobj">
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=password</arg>
+<arg>${ADMIN_PASSWORD}</arg>
+</arguments>
+<msg timestamp="20181120 19:33:53.911" level="INFO">Typing text 'autoadmin@123' into text field 'name=password'.</msg>
+<status status="PASS" endtime="20181120 19:33:54.115" starttime="20181120 19:33:53.911"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${ADMIN_PASSWORD}</arg>
+</arguments>
+<msg timestamp="20181120 19:33:54.116" level="INFO">autoadmin@123</msg>
+<status status="PASS" endtime="20181120 19:33:54.116" starttime="20181120 19:33:54.116"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:33:54.116" starttime="20181120 19:33:53.911"></status>
+</kw>
+<kw name="click on adminlogin button" library="adminloginpageobj">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>css=.submit-row&gt;input</arg>
+</arguments>
+<msg timestamp="20181120 19:33:54.119" level="INFO">Clicking element 'css=.submit-row&gt;input'.</msg>
+<status status="PASS" endtime="20181120 19:33:55.147" starttime="20181120 19:33:54.117"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:33:55.147" starttime="20181120 19:33:54.116"></status>
+</kw>
+<kw name="verify adminuser loged in" library="adminloginpageobj">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>css=.reset-dashboard-link-icon.icon-reset</arg>
+<arg>10s</arg>
+</arguments>
+<status status="PASS" endtime="20181120 19:33:55.192" starttime="20181120 19:33:55.149"></status>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<doc>Verifies that current page title equals ``title``.</doc>
+<arguments>
+<arg>Site administration | QVENTUS</arg>
+</arguments>
+<msg timestamp="20181120 19:33:55.214" level="INFO">Page title is 'Site administration | QVENTUS'.</msg>
+<status status="PASS" endtime="20181120 19:33:55.214" starttime="20181120 19:33:55.196"></status>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>css=.button.add-dashboard-link</arg>
+</arguments>
+<msg timestamp="20181120 19:33:55.241" level="INFO">Current page contains element 'css=.button.add-dashboard-link'.</msg>
+<status status="PASS" endtime="20181120 19:33:55.241" starttime="20181120 19:33:55.214"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:33:55.241" starttime="20181120 19:33:55.148"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:33:55.241" starttime="20181120 19:33:51.572"></status>
+</kw>
+<kw type="teardown" name="End Test" library="admincommon">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20181120 19:33:55.302" starttime="20181120 19:33:55.242"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:33:55.302" starttime="20181120 19:33:55.242"></status>
+</kw>
+<tags>
+<tag>admin-login</tag>
+<tag>daily-smoketest</tag>
+<tag>regression-test</tag>
+</tags>
+<status status="PASS" endtime="20181120 19:33:55.303" critical="yes" starttime="20181120 19:33:49.634"></status>
+</test>
+<test id="s1-t2" name="2__Bad login - Invalid username + Invalid password">
+<kw type="setup" name="Begin Test" library="admincommon">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20181120 19:33:55.310" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" endtime="20181120 19:33:57.158" starttime="20181120 19:33:55.309"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20181120 19:33:57.266" starttime="20181120 19:33:57.159"></status>
+</kw>
+<kw name="Delete All Cookies" library="SeleniumLibrary">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" endtime="20181120 19:33:57.275" starttime="20181120 19:33:57.266"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:33:57.275" starttime="20181120 19:33:55.309"></status>
+</kw>
+<kw name="Invalid username + Invalid password" library="adminlogin">
+<kw name="load adminlogin page" library="adminloginpageobj">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${ADMIN_URL}</arg>
+</arguments>
+<msg timestamp="20181120 19:33:57.277" level="INFO">Opening url 'http://localhost:8000/atc'</msg>
+<status status="PASS" endtime="20181120 19:33:59.384" starttime="20181120 19:33:57.276"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:33:59.385" starttime="20181120 19:33:57.276"></status>
+</kw>
+<kw name="Enter invalidadmin username" library="adminloginpageobj">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${ADMIN_USERNAME}</arg>
+</arguments>
+<msg timestamp="20181120 19:33:59.390" level="INFO">autoadmin</msg>
+<status status="PASS" endtime="20181120 19:33:59.391" starttime="20181120 19:33:59.388"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${ADMIN_USERNAME}1</arg>
+</arguments>
+<assign>
+<var>${my_new_invalidusername}</var>
+</assign>
+<msg timestamp="20181120 19:33:59.394" level="INFO">${my_new_invalidusername} = autoadmin1</msg>
+<status status="PASS" endtime="20181120 19:33:59.394" starttime="20181120 19:33:59.392"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${my_new_invalidusername}</arg>
+</arguments>
+<msg timestamp="20181120 19:33:59.396" level="INFO">autoadmin1</msg>
+<status status="PASS" endtime="20181120 19:33:59.397" starttime="20181120 19:33:59.395"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=username</arg>
+<arg>${my_new_invalidusername}</arg>
+</arguments>
+<msg timestamp="20181120 19:33:59.400" level="INFO">Typing text 'autoadmin1' into text field 'name=username'.</msg>
+<status status="PASS" endtime="20181120 19:33:59.601" starttime="20181120 19:33:59.398"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:33:59.602" starttime="20181120 19:33:59.386"></status>
+</kw>
+<kw name="Enter invalidadmin password" library="adminloginpageobj">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${ADMIN_USERNAME}</arg>
+</arguments>
+<msg timestamp="20181120 19:33:59.604" level="INFO">autoadmin</msg>
+<status status="PASS" endtime="20181120 19:33:59.604" starttime="20181120 19:33:59.603"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${ADMIN_PASSWORD}1</arg>
+</arguments>
+<assign>
+<var>${my_new_invalidpassword}</var>
+</assign>
+<msg timestamp="20181120 19:33:59.605" level="INFO">${my_new_invalidpassword} = autoadmin@1231</msg>
+<status status="PASS" endtime="20181120 19:33:59.605" starttime="20181120 19:33:59.605"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${my_new_invalidpassword}</arg>
+</arguments>
+<msg timestamp="20181120 19:33:59.605" level="INFO">autoadmin@1231</msg>
+<status status="PASS" endtime="20181120 19:33:59.605" starttime="20181120 19:33:59.605"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=password</arg>
+<arg>${my_new_invalidpassword}</arg>
+</arguments>
+<msg timestamp="20181120 19:33:59.606" level="INFO">Typing text 'autoadmin@1231' into text field 'name=password'.</msg>
+<status status="PASS" endtime="20181120 19:33:59.828" starttime="20181120 19:33:59.606"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:33:59.828" starttime="20181120 19:33:59.603"></status>
+</kw>
+<kw name="click on adminlogin button" library="adminloginpageobj">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>css=.submit-row&gt;input</arg>
+</arguments>
+<msg timestamp="20181120 19:33:59.829" level="INFO">Clicking element 'css=.submit-row&gt;input'.</msg>
+<status status="PASS" endtime="20181120 19:34:00.220" starttime="20181120 19:33:59.829"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:00.220" starttime="20181120 19:33:59.829"></status>
+</kw>
+<kw name="verify invalid login" library="adminloginpageobj">
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>css=.submit-row&gt;input</arg>
+</arguments>
+<msg timestamp="20181120 19:34:00.238" level="INFO">Current page contains element 'css=.submit-row&gt;input'.</msg>
+<status status="PASS" endtime="20181120 19:34:00.238" starttime="20181120 19:34:00.221"></status>
+</kw>
+<kw name="Location Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current URL contains ``expected``.</doc>
+<arguments>
+<arg>/atc/login/?next=/atc/</arg>
+</arguments>
+<msg timestamp="20181120 19:34:00.248" level="INFO">Current location contains '/atc/login/?next=/atc/'.</msg>
+<status status="PASS" endtime="20181120 19:34:00.249" starttime="20181120 19:34:00.238"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>css=.errornote</arg>
+<arg>10s</arg>
+</arguments>
+<status status="PASS" endtime="20181120 19:34:00.268" starttime="20181120 19:34:00.250"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Please enter the correct username and password for a staff account. Note that both fields may be case-sensitive.</arg>
+</arguments>
+<msg timestamp="20181120 19:34:00.302" level="INFO">Current page contains text 'Please enter the correct username and password for a staff account. Note that both fields may be case-sensitive.'.</msg>
+<status status="PASS" endtime="20181120 19:34:00.302" starttime="20181120 19:34:00.268"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:00.302" starttime="20181120 19:34:00.220"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:00.302" starttime="20181120 19:33:57.276"></status>
+</kw>
+<kw type="teardown" name="End Test" library="admincommon">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20181120 19:34:00.364" starttime="20181120 19:34:00.303"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:00.366" starttime="20181120 19:34:00.303"></status>
+</kw>
+<tags>
+<tag>admin-login</tag>
+<tag>daily-smoketest</tag>
+<tag>regression-test</tag>
+</tags>
+<status status="PASS" endtime="20181120 19:34:00.367" critical="yes" starttime="20181120 19:33:55.307"></status>
+</test>
+<test id="s1-t3" name="3__Bad login - Invalid username + valid password">
+<kw type="setup" name="Begin Test" library="admincommon">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:00.373" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" endtime="20181120 19:34:02.151" starttime="20181120 19:34:00.372"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20181120 19:34:02.259" starttime="20181120 19:34:02.152"></status>
+</kw>
+<kw name="Delete All Cookies" library="SeleniumLibrary">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" endtime="20181120 19:34:02.269" starttime="20181120 19:34:02.260"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:02.269" starttime="20181120 19:34:00.371"></status>
+</kw>
+<kw name="Invalid username + valid password" library="adminlogin">
+<kw name="load adminlogin page" library="adminloginpageobj">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${ADMIN_URL}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:02.271" level="INFO">Opening url 'http://localhost:8000/atc'</msg>
+<status status="PASS" endtime="20181120 19:34:04.290" starttime="20181120 19:34:02.270"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:04.291" starttime="20181120 19:34:02.270"></status>
+</kw>
+<kw name="Enter invalidadmin username" library="adminloginpageobj">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${ADMIN_USERNAME}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:04.299" level="INFO">autoadmin</msg>
+<status status="PASS" endtime="20181120 19:34:04.300" starttime="20181120 19:34:04.297"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${ADMIN_USERNAME}1</arg>
+</arguments>
+<assign>
+<var>${my_new_invalidusername}</var>
+</assign>
+<msg timestamp="20181120 19:34:04.306" level="INFO">${my_new_invalidusername} = autoadmin1</msg>
+<status status="PASS" endtime="20181120 19:34:04.307" starttime="20181120 19:34:04.303"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${my_new_invalidusername}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:04.310" level="INFO">autoadmin1</msg>
+<status status="PASS" endtime="20181120 19:34:04.311" starttime="20181120 19:34:04.308"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=username</arg>
+<arg>${my_new_invalidusername}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:04.314" level="INFO">Typing text 'autoadmin1' into text field 'name=username'.</msg>
+<status status="PASS" endtime="20181120 19:34:04.488" starttime="20181120 19:34:04.312"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:04.488" starttime="20181120 19:34:04.293"></status>
+</kw>
+<kw name="Enter admin password" library="adminloginpageobj">
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=password</arg>
+<arg>${ADMIN_PASSWORD}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:04.489" level="INFO">Typing text 'autoadmin@123' into text field 'name=password'.</msg>
+<status status="PASS" endtime="20181120 19:34:04.703" starttime="20181120 19:34:04.489"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${ADMIN_PASSWORD}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:04.703" level="INFO">autoadmin@123</msg>
+<status status="PASS" endtime="20181120 19:34:04.704" starttime="20181120 19:34:04.703"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:04.704" starttime="20181120 19:34:04.489"></status>
+</kw>
+<kw name="click on adminlogin button" library="adminloginpageobj">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>css=.submit-row&gt;input</arg>
+</arguments>
+<msg timestamp="20181120 19:34:04.705" level="INFO">Clicking element 'css=.submit-row&gt;input'.</msg>
+<status status="PASS" endtime="20181120 19:34:05.067" starttime="20181120 19:34:04.705"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:05.067" starttime="20181120 19:34:04.704"></status>
+</kw>
+<kw name="verify invalid login" library="adminloginpageobj">
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>css=.submit-row&gt;input</arg>
+</arguments>
+<msg timestamp="20181120 19:34:05.085" level="INFO">Current page contains element 'css=.submit-row&gt;input'.</msg>
+<status status="PASS" endtime="20181120 19:34:05.085" starttime="20181120 19:34:05.068"></status>
+</kw>
+<kw name="Location Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current URL contains ``expected``.</doc>
+<arguments>
+<arg>/atc/login/?next=/atc/</arg>
+</arguments>
+<msg timestamp="20181120 19:34:05.100" level="INFO">Current location contains '/atc/login/?next=/atc/'.</msg>
+<status status="PASS" endtime="20181120 19:34:05.100" starttime="20181120 19:34:05.085"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>css=.errornote</arg>
+<arg>10s</arg>
+</arguments>
+<status status="PASS" endtime="20181120 19:34:05.119" starttime="20181120 19:34:05.101"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Please enter the correct username and password for a staff account. Note that both fields may be case-sensitive.</arg>
+</arguments>
+<msg timestamp="20181120 19:34:05.150" level="INFO">Current page contains text 'Please enter the correct username and password for a staff account. Note that both fields may be case-sensitive.'.</msg>
+<status status="PASS" endtime="20181120 19:34:05.151" starttime="20181120 19:34:05.119"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:05.151" starttime="20181120 19:34:05.067"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:05.151" starttime="20181120 19:34:02.270"></status>
+</kw>
+<kw type="teardown" name="End Test" library="admincommon">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20181120 19:34:05.212" starttime="20181120 19:34:05.152"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:05.212" starttime="20181120 19:34:05.152"></status>
+</kw>
+<tags>
+<tag>admin-login</tag>
+<tag>regression-test</tag>
+</tags>
+<status status="PASS" endtime="20181120 19:34:05.213" critical="yes" starttime="20181120 19:34:00.369"></status>
+</test>
+<test id="s1-t4" name="4__Bad login - valid username + Invalid password">
+<kw type="setup" name="Begin Test" library="admincommon">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:05.215" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" endtime="20181120 19:34:07.022" starttime="20181120 19:34:05.215"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20181120 19:34:07.129" starttime="20181120 19:34:07.023"></status>
+</kw>
+<kw name="Delete All Cookies" library="SeleniumLibrary">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" endtime="20181120 19:34:07.139" starttime="20181120 19:34:07.130"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:07.139" starttime="20181120 19:34:05.214"></status>
+</kw>
+<kw name="valid username + invalid password" library="adminlogin">
+<kw name="load adminlogin page" library="adminloginpageobj">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${ADMIN_URL}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:07.142" level="INFO">Opening url 'http://localhost:8000/atc'</msg>
+<status status="PASS" endtime="20181120 19:34:09.200" starttime="20181120 19:34:07.141"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:09.201" starttime="20181120 19:34:07.140"></status>
+</kw>
+<kw name="Enter invalidadmin username" library="adminloginpageobj">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${ADMIN_USERNAME}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:09.205" level="INFO">autoadmin</msg>
+<status status="PASS" endtime="20181120 19:34:09.206" starttime="20181120 19:34:09.204"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${ADMIN_USERNAME}1</arg>
+</arguments>
+<assign>
+<var>${my_new_invalidusername}</var>
+</assign>
+<msg timestamp="20181120 19:34:09.210" level="INFO">${my_new_invalidusername} = autoadmin1</msg>
+<status status="PASS" endtime="20181120 19:34:09.210" starttime="20181120 19:34:09.207"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${my_new_invalidusername}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:09.219" level="INFO">autoadmin1</msg>
+<status status="PASS" endtime="20181120 19:34:09.220" starttime="20181120 19:34:09.217"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=username</arg>
+<arg>${my_new_invalidusername}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:09.224" level="INFO">Typing text 'autoadmin1' into text field 'name=username'.</msg>
+<status status="PASS" endtime="20181120 19:34:09.440" starttime="20181120 19:34:09.222"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:09.440" starttime="20181120 19:34:09.202"></status>
+</kw>
+<kw name="Enter invalidadmin password" library="adminloginpageobj">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${ADMIN_USERNAME}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:09.441" level="INFO">autoadmin</msg>
+<status status="PASS" endtime="20181120 19:34:09.441" starttime="20181120 19:34:09.441"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${ADMIN_PASSWORD}1</arg>
+</arguments>
+<assign>
+<var>${my_new_invalidpassword}</var>
+</assign>
+<msg timestamp="20181120 19:34:09.442" level="INFO">${my_new_invalidpassword} = autoadmin@1231</msg>
+<status status="PASS" endtime="20181120 19:34:09.442" starttime="20181120 19:34:09.441"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${my_new_invalidpassword}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:09.442" level="INFO">autoadmin@1231</msg>
+<status status="PASS" endtime="20181120 19:34:09.442" starttime="20181120 19:34:09.442"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=password</arg>
+<arg>${my_new_invalidpassword}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:09.443" level="INFO">Typing text 'autoadmin@1231' into text field 'name=password'.</msg>
+<status status="PASS" endtime="20181120 19:34:09.692" starttime="20181120 19:34:09.442"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:09.692" starttime="20181120 19:34:09.441"></status>
+</kw>
+<kw name="click on adminlogin button" library="adminloginpageobj">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>css=.submit-row&gt;input</arg>
+</arguments>
+<msg timestamp="20181120 19:34:09.695" level="INFO">Clicking element 'css=.submit-row&gt;input'.</msg>
+<status status="PASS" endtime="20181120 19:34:10.057" starttime="20181120 19:34:09.694"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:10.057" starttime="20181120 19:34:09.693"></status>
+</kw>
+<kw name="verify invalid login" library="adminloginpageobj">
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>css=.submit-row&gt;input</arg>
+</arguments>
+<msg timestamp="20181120 19:34:10.073" level="INFO">Current page contains element 'css=.submit-row&gt;input'.</msg>
+<status status="PASS" endtime="20181120 19:34:10.074" starttime="20181120 19:34:10.058"></status>
+</kw>
+<kw name="Location Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current URL contains ``expected``.</doc>
+<arguments>
+<arg>/atc/login/?next=/atc/</arg>
+</arguments>
+<msg timestamp="20181120 19:34:10.081" level="INFO">Current location contains '/atc/login/?next=/atc/'.</msg>
+<status status="PASS" endtime="20181120 19:34:10.082" starttime="20181120 19:34:10.074"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>css=.errornote</arg>
+<arg>10s</arg>
+</arguments>
+<status status="PASS" endtime="20181120 19:34:10.108" starttime="20181120 19:34:10.082"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Please enter the correct username and password for a staff account. Note that both fields may be case-sensitive.</arg>
+</arguments>
+<msg timestamp="20181120 19:34:10.136" level="INFO">Current page contains text 'Please enter the correct username and password for a staff account. Note that both fields may be case-sensitive.'.</msg>
+<status status="PASS" endtime="20181120 19:34:10.136" starttime="20181120 19:34:10.109"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:10.137" starttime="20181120 19:34:10.058"></status>
+</kw>
+<kw name="load adminlogin page" library="adminloginpageobj">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${ADMIN_URL}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:10.140" level="INFO">Opening url 'http://localhost:8000/atc'</msg>
+<status status="PASS" endtime="20181120 19:34:10.347" starttime="20181120 19:34:10.140"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:10.348" starttime="20181120 19:34:10.138"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:10.348" starttime="20181120 19:34:07.140"></status>
+</kw>
+<kw type="teardown" name="End Test" library="admincommon">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20181120 19:34:10.414" starttime="20181120 19:34:10.348"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:10.415" starttime="20181120 19:34:10.348"></status>
+</kw>
+<tags>
+<tag>admin-login</tag>
+<tag>regression-test</tag>
+</tags>
+<status status="PASS" endtime="20181120 19:34:10.415" critical="yes" starttime="20181120 19:34:05.213"></status>
+</test>
+<test id="s1-t5" name="5__As admin verify username field is required field">
+<kw type="setup" name="Begin Test" library="admincommon">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:10.420" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" endtime="20181120 19:34:12.198" starttime="20181120 19:34:10.420"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20181120 19:34:12.304" starttime="20181120 19:34:12.199"></status>
+</kw>
+<kw name="Delete All Cookies" library="SeleniumLibrary">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" endtime="20181120 19:34:12.312" starttime="20181120 19:34:12.304"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:12.312" starttime="20181120 19:34:10.419"></status>
+</kw>
+<kw name="verify adminusername field validation" library="adminlogin">
+<kw name="load adminlogin page" library="adminloginpageobj">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${ADMIN_URL}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:12.314" level="INFO">Opening url 'http://localhost:8000/atc'</msg>
+<status status="PASS" endtime="20181120 19:34:14.330" starttime="20181120 19:34:12.314"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:14.331" starttime="20181120 19:34:12.313"></status>
+</kw>
+<kw name="Enter admin password" library="adminloginpageobj">
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=password</arg>
+<arg>${ADMIN_PASSWORD}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:14.339" level="INFO">Typing text 'autoadmin@123' into text field 'name=password'.</msg>
+<status status="PASS" endtime="20181120 19:34:14.647" starttime="20181120 19:34:14.336"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${ADMIN_PASSWORD}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:14.648" level="INFO">autoadmin@123</msg>
+<status status="PASS" endtime="20181120 19:34:14.648" starttime="20181120 19:34:14.648"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:14.649" starttime="20181120 19:34:14.333"></status>
+</kw>
+<kw name="click on adminlogin button" library="adminloginpageobj">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>css=.submit-row&gt;input</arg>
+</arguments>
+<msg timestamp="20181120 19:34:14.652" level="INFO">Clicking element 'css=.submit-row&gt;input'.</msg>
+<status status="PASS" endtime="20181120 19:34:14.786" starttime="20181120 19:34:14.651"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:14.786" starttime="20181120 19:34:14.650"></status>
+</kw>
+<kw name="verify Username required field" library="adminloginpageobj">
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>css=.submit-row&gt;input</arg>
+</arguments>
+<msg timestamp="20181120 19:34:14.803" level="INFO">Current page contains element 'css=.submit-row&gt;input'.</msg>
+<status status="PASS" endtime="20181120 19:34:14.803" starttime="20181120 19:34:14.787"></status>
+</kw>
+<kw name="Location Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current URL contains ``expected``.</doc>
+<arguments>
+<arg>/atc/login/?next=/atc/</arg>
+</arguments>
+<msg timestamp="20181120 19:34:14.812" level="INFO">Current location contains '/atc/login/?next=/atc/'.</msg>
+<status status="PASS" endtime="20181120 19:34:14.812" starttime="20181120 19:34:14.804"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:14.812" starttime="20181120 19:34:14.786"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:14.812" starttime="20181120 19:34:12.313"></status>
+</kw>
+<kw type="teardown" name="End Test" library="admincommon">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20181120 19:34:14.877" starttime="20181120 19:34:14.813"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:14.877" starttime="20181120 19:34:14.813"></status>
+</kw>
+<tags>
+<tag>admin-login</tag>
+<tag>daily-smoketest</tag>
+<tag>regression-test</tag>
+</tags>
+<status status="PASS" endtime="20181120 19:34:14.877" critical="yes" starttime="20181120 19:34:10.417"></status>
+</test>
+<test id="s1-t6" name="6__As admin verify password field is required field">
+<kw type="setup" name="Begin Test" library="admincommon">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:14.882" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" endtime="20181120 19:34:16.683" starttime="20181120 19:34:14.881"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20181120 19:34:16.788" starttime="20181120 19:34:16.683"></status>
+</kw>
+<kw name="Delete All Cookies" library="SeleniumLibrary">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" endtime="20181120 19:34:16.798" starttime="20181120 19:34:16.788"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:16.799" starttime="20181120 19:34:14.880"></status>
+</kw>
+<kw name="verify adminpassword field validation" library="adminlogin">
+<kw name="load adminlogin page" library="adminloginpageobj">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${ADMIN_URL}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:16.800" level="INFO">Opening url 'http://localhost:8000/atc'</msg>
+<status status="PASS" endtime="20181120 19:34:18.828" starttime="20181120 19:34:16.800"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:18.829" starttime="20181120 19:34:16.799"></status>
+</kw>
+<kw name="Enter admin username" library="adminloginpageobj">
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=username</arg>
+<arg>${ADMIN_USERNAME}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:18.835" level="INFO">Typing text 'autoadmin' into text field 'name=username'.</msg>
+<status status="PASS" endtime="20181120 19:34:19.058" starttime="20181120 19:34:18.833"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${ADMIN_USERNAME}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:19.058" level="INFO">autoadmin</msg>
+<status status="PASS" endtime="20181120 19:34:19.058" starttime="20181120 19:34:19.058"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:19.059" starttime="20181120 19:34:18.830"></status>
+</kw>
+<kw name="click on adminlogin button" library="adminloginpageobj">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>css=.submit-row&gt;input</arg>
+</arguments>
+<msg timestamp="20181120 19:34:19.059" level="INFO">Clicking element 'css=.submit-row&gt;input'.</msg>
+<status status="PASS" endtime="20181120 19:34:19.163" starttime="20181120 19:34:19.059"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:19.163" starttime="20181120 19:34:19.059"></status>
+</kw>
+<kw name="verify password required field" library="adminloginpageobj">
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>css=.submit-row&gt;input</arg>
+</arguments>
+<msg timestamp="20181120 19:34:19.175" level="INFO">Current page contains element 'css=.submit-row&gt;input'.</msg>
+<status status="PASS" endtime="20181120 19:34:19.176" starttime="20181120 19:34:19.164"></status>
+</kw>
+<kw name="Location Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current URL contains ``expected``.</doc>
+<arguments>
+<arg>/atc/login/?next=/atc/</arg>
+</arguments>
+<msg timestamp="20181120 19:34:19.192" level="INFO">Current location contains '/atc/login/?next=/atc/'.</msg>
+<status status="PASS" endtime="20181120 19:34:19.192" starttime="20181120 19:34:19.176"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:19.192" starttime="20181120 19:34:19.164"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:19.192" starttime="20181120 19:34:16.799"></status>
+</kw>
+<kw type="teardown" name="End Test" library="admincommon">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20181120 19:34:19.261" starttime="20181120 19:34:19.193"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:19.262" starttime="20181120 19:34:19.193"></status>
+</kw>
+<tags>
+<tag>admin-login</tag>
+<tag>regression-test</tag>
+</tags>
+<status status="PASS" endtime="20181120 19:34:19.262" critical="yes" starttime="20181120 19:34:14.878"></status>
+</test>
+<test id="s1-t7" name="7__As staffuser verify should not have access to admin">
+<kw type="setup" name="Begin Test" library="admincommon">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:19.265" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" endtime="20181120 19:34:21.036" starttime="20181120 19:34:19.264"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20181120 19:34:21.141" starttime="20181120 19:34:21.036"></status>
+</kw>
+<kw name="Delete All Cookies" library="SeleniumLibrary">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" endtime="20181120 19:34:21.151" starttime="20181120 19:34:21.141"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:21.151" starttime="20181120 19:34:19.264"></status>
+</kw>
+<kw name="verify staffuser should not have access to admin" library="adminlogin">
+<kw name="load adminlogin page" library="adminloginpageobj">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${ADMIN_URL}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:21.153" level="INFO">Opening url 'http://localhost:8000/atc'</msg>
+<status status="PASS" endtime="20181120 19:34:23.361" starttime="20181120 19:34:21.152"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:23.362" starttime="20181120 19:34:21.152"></status>
+</kw>
+<kw name="Fill Login page and submit" library="adminloginpageobj">
+<arguments>
+<arg>${USERNAME}</arg>
+<arg>${PASSWORD}</arg>
+</arguments>
+<kw name="Fill username" library="adminloginpageobj">
+<arguments>
+<arg>${USERNAME}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=username</arg>
+<arg>${USERNAME}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:23.373" level="INFO">Typing text 'autostaffuser' into text field 'name=username'.</msg>
+<status status="PASS" endtime="20181120 19:34:23.589" starttime="20181120 19:34:23.371"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:23.589" starttime="20181120 19:34:23.366"></status>
+</kw>
+<kw name="Fill password" library="adminloginpageobj">
+<arguments>
+<arg>${PASSWORD}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=password</arg>
+<arg>${PASSWORD}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:23.593" level="INFO">Typing text 'autostaffuser123' into text field 'name=password'.</msg>
+<status status="PASS" endtime="20181120 19:34:23.841" starttime="20181120 19:34:23.592"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:23.841" starttime="20181120 19:34:23.590"></status>
+</kw>
+<kw name="click on adminlogin button" library="adminloginpageobj">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>css=.submit-row&gt;input</arg>
+</arguments>
+<msg timestamp="20181120 19:34:23.843" level="INFO">Clicking element 'css=.submit-row&gt;input'.</msg>
+<status status="PASS" endtime="20181120 19:34:24.551" starttime="20181120 19:34:23.843"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:24.551" starttime="20181120 19:34:23.842"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:24.551" starttime="20181120 19:34:23.363"></status>
+</kw>
+<kw name="verify staffuser should not have access to admin modules" library="adminloginpageobj">
+<kw name="Page Should Not Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>xpath=//span[text()='Applications']</arg>
+</arguments>
+<msg timestamp="20181120 19:34:24.599" level="INFO">Current page does not contain element 'xpath=//span[text()='Applications']'.</msg>
+<status status="PASS" endtime="20181120 19:34:24.599" starttime="20181120 19:34:24.553"></status>
+</kw>
+<kw name="Page Should Not Contain Link" library="SeleniumLibrary">
+<doc>Verifies link identified by ``locator`` is not found from current page.</doc>
+<arguments>
+<arg>main</arg>
+</arguments>
+<msg timestamp="20181120 19:34:24.645" level="INFO">Current page does not contain link 'main'.</msg>
+<status status="PASS" endtime="20181120 19:34:24.645" starttime="20181120 19:34:24.600"></status>
+</kw>
+<kw name="Page Should Not Contain Link" library="SeleniumLibrary">
+<doc>Verifies link identified by ``locator`` is not found from current page.</doc>
+<arguments>
+<arg>Authentication and Authorization</arg>
+</arguments>
+<msg timestamp="20181120 19:34:24.681" level="INFO">Current page does not contain link 'Authentication and Authorization'.</msg>
+<status status="PASS" endtime="20181120 19:34:24.681" starttime="20181120 19:34:24.645"></status>
+</kw>
+<kw name="Page Should Not Contain Link" library="SeleniumLibrary">
+<doc>Verifies link identified by ``locator`` is not found from current page.</doc>
+<arguments>
+<arg>missioncontrol</arg>
+</arguments>
+<msg timestamp="20181120 19:34:24.716" level="INFO">Current page does not contain link 'missioncontrol'.</msg>
+<status status="PASS" endtime="20181120 19:34:24.716" starttime="20181120 19:34:24.682"></status>
+</kw>
+<kw name="Page Should Not Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>css=.sidebar-menu-item-list-item-link.popup-item-link.hovered</arg>
+</arguments>
+<msg timestamp="20181120 19:34:24.737" level="INFO">Current page does not contain element 'css=.sidebar-menu-item-list-item-link.popup-item-link.hovered'.</msg>
+<status status="PASS" endtime="20181120 19:34:24.737" starttime="20181120 19:34:24.716"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:24.737" starttime="20181120 19:34:24.552"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:24.737" starttime="20181120 19:34:21.151"></status>
+</kw>
+<kw type="teardown" name="End Test" library="admincommon">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20181120 19:34:24.801" starttime="20181120 19:34:24.739"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:24.801" starttime="20181120 19:34:24.738"></status>
+</kw>
+<tags>
+<tag>admin-login</tag>
+<tag>regression-test</tag>
+</tags>
+<status status="PASS" endtime="20181120 19:34:24.802" critical="yes" starttime="20181120 19:34:19.263"></status>
+</test>
+<test id="s1-t8" name="8__As Non staffuser verify should not have access to admin">
+<kw type="setup" name="Begin Test" library="admincommon">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:24.806" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" endtime="20181120 19:34:26.774" starttime="20181120 19:34:24.805"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20181120 19:34:26.879" starttime="20181120 19:34:26.775"></status>
+</kw>
+<kw name="Delete All Cookies" library="SeleniumLibrary">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" endtime="20181120 19:34:26.887" starttime="20181120 19:34:26.880"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:26.888" starttime="20181120 19:34:24.805"></status>
+</kw>
+<kw name="verify Non staffuser should not have access to admin" library="adminlogin">
+<kw name="load adminlogin page" library="adminloginpageobj">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${ADMIN_URL}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:26.889" level="INFO">Opening url 'http://localhost:8000/atc'</msg>
+<status status="PASS" endtime="20181120 19:34:28.961" starttime="20181120 19:34:26.889"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:28.961" starttime="20181120 19:34:26.888"></status>
+</kw>
+<kw name="Fill Login page and submit" library="adminloginpageobj">
+<arguments>
+<arg>${USERNAME1}</arg>
+<arg>${PASSWORD1}</arg>
+</arguments>
+<kw name="Fill username" library="adminloginpageobj">
+<arguments>
+<arg>${USERNAME}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=username</arg>
+<arg>${USERNAME}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:28.964" level="INFO">Typing text 'testauto1' into text field 'name=username'.</msg>
+<status status="PASS" endtime="20181120 19:34:29.188" starttime="20181120 19:34:28.964"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:29.189" starttime="20181120 19:34:28.963"></status>
+</kw>
+<kw name="Fill password" library="adminloginpageobj">
+<arguments>
+<arg>${PASSWORD}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=password</arg>
+<arg>${PASSWORD}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:29.191" level="INFO">Typing text 'testauto123' into text field 'name=password'.</msg>
+<status status="PASS" endtime="20181120 19:34:29.442" starttime="20181120 19:34:29.191"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:29.442" starttime="20181120 19:34:29.190"></status>
+</kw>
+<kw name="click on adminlogin button" library="adminloginpageobj">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>css=.submit-row&gt;input</arg>
+</arguments>
+<msg timestamp="20181120 19:34:29.443" level="INFO">Clicking element 'css=.submit-row&gt;input'.</msg>
+<status status="PASS" endtime="20181120 19:34:29.860" starttime="20181120 19:34:29.443"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:29.861" starttime="20181120 19:34:29.442"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:29.861" starttime="20181120 19:34:28.962"></status>
+</kw>
+<kw name="verify invalid login" library="adminloginpageobj">
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>css=.submit-row&gt;input</arg>
+</arguments>
+<msg timestamp="20181120 19:34:29.886" level="INFO">Current page contains element 'css=.submit-row&gt;input'.</msg>
+<status status="PASS" endtime="20181120 19:34:29.887" starttime="20181120 19:34:29.863"></status>
+</kw>
+<kw name="Location Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current URL contains ``expected``.</doc>
+<arguments>
+<arg>/atc/login/?next=/atc/</arg>
+</arguments>
+<msg timestamp="20181120 19:34:29.901" level="INFO">Current location contains '/atc/login/?next=/atc/'.</msg>
+<status status="PASS" endtime="20181120 19:34:29.902" starttime="20181120 19:34:29.889"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>css=.errornote</arg>
+<arg>10s</arg>
+</arguments>
+<status status="PASS" endtime="20181120 19:34:29.928" starttime="20181120 19:34:29.902"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Please enter the correct username and password for a staff account. Note that both fields may be case-sensitive.</arg>
+</arguments>
+<msg timestamp="20181120 19:34:29.958" level="INFO">Current page contains text 'Please enter the correct username and password for a staff account. Note that both fields may be case-sensitive.'.</msg>
+<status status="PASS" endtime="20181120 19:34:29.958" starttime="20181120 19:34:29.929"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:29.959" starttime="20181120 19:34:29.862"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:29.959" starttime="20181120 19:34:26.888"></status>
+</kw>
+<kw type="teardown" name="End Test" library="admincommon">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20181120 19:34:30.020" starttime="20181120 19:34:29.961"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:30.023" starttime="20181120 19:34:29.959"></status>
+</kw>
+<tags>
+<tag>admin-login</tag>
+<tag>regression-test</tag>
+</tags>
+<status status="PASS" endtime="20181120 19:34:30.023" critical="yes" starttime="20181120 19:34:24.803"></status>
+</test>
+<test id="s1-t9" name="9__Verify admin signout">
+<kw type="setup" name="Begin Test" library="admincommon">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:30.028" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" endtime="20181120 19:34:31.962" starttime="20181120 19:34:30.028"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20181120 19:34:32.075" starttime="20181120 19:34:31.963"></status>
+</kw>
+<kw name="Delete All Cookies" library="SeleniumLibrary">
+<doc>Deletes all cookies.</doc>
+<status status="PASS" endtime="20181120 19:34:32.084" starttime="20181120 19:34:32.075"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:32.084" starttime="20181120 19:34:30.027"></status>
+</kw>
+<kw name="Verify admin signout" library="adminlogin">
+<kw name="Login with valid adminuser and adminpassword" library="adminlogin">
+<kw name="load adminlogin page" library="adminloginpageobj">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${ADMIN_URL}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:32.087" level="INFO">Opening url 'http://localhost:8000/atc'</msg>
+<status status="PASS" endtime="20181120 19:34:34.290" starttime="20181120 19:34:32.087"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:34.291" starttime="20181120 19:34:32.086"></status>
+</kw>
+<kw name="Enter admin username" library="adminloginpageobj">
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=username</arg>
+<arg>${ADMIN_USERNAME}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:34.296" level="INFO">Typing text 'autoadmin' into text field 'name=username'.</msg>
+<status status="PASS" endtime="20181120 19:34:34.502" starttime="20181120 19:34:34.294"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${ADMIN_USERNAME}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:34.502" level="INFO">autoadmin</msg>
+<status status="PASS" endtime="20181120 19:34:34.503" starttime="20181120 19:34:34.502"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:34.503" starttime="20181120 19:34:34.293"></status>
+</kw>
+<kw name="Enter admin password" library="adminloginpageobj">
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>name=password</arg>
+<arg>${ADMIN_PASSWORD}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:34.504" level="INFO">Typing text 'autoadmin@123' into text field 'name=password'.</msg>
+<status status="PASS" endtime="20181120 19:34:34.767" starttime="20181120 19:34:34.504"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${ADMIN_PASSWORD}</arg>
+</arguments>
+<msg timestamp="20181120 19:34:34.768" level="INFO">autoadmin@123</msg>
+<status status="PASS" endtime="20181120 19:34:34.768" starttime="20181120 19:34:34.768"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:34.768" starttime="20181120 19:34:34.503"></status>
+</kw>
+<kw name="click on adminlogin button" library="adminloginpageobj">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>css=.submit-row&gt;input</arg>
+</arguments>
+<msg timestamp="20181120 19:34:34.769" level="INFO">Clicking element 'css=.submit-row&gt;input'.</msg>
+<status status="PASS" endtime="20181120 19:34:36.066" starttime="20181120 19:34:34.769"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:36.066" starttime="20181120 19:34:34.768"></status>
+</kw>
+<kw name="verify adminuser loged in" library="adminloginpageobj">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>css=.reset-dashboard-link-icon.icon-reset</arg>
+<arg>10s</arg>
+</arguments>
+<status status="PASS" endtime="20181120 19:34:36.113" starttime="20181120 19:34:36.067"></status>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<doc>Verifies that current page title equals ``title``.</doc>
+<arguments>
+<arg>Site administration | QVENTUS</arg>
+</arguments>
+<msg timestamp="20181120 19:34:36.127" level="INFO">Page title is 'Site administration | QVENTUS'.</msg>
+<status status="PASS" endtime="20181120 19:34:36.128" starttime="20181120 19:34:36.113"></status>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>css=.button.add-dashboard-link</arg>
+</arguments>
+<msg timestamp="20181120 19:34:36.158" level="INFO">Current page contains element 'css=.button.add-dashboard-link'.</msg>
+<status status="PASS" endtime="20181120 19:34:36.158" starttime="20181120 19:34:36.128"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:36.158" starttime="20181120 19:34:36.066"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:36.158" starttime="20181120 19:34:32.086"></status>
+</kw>
+<kw name="verify admin home page title" library="adminhomepageobj">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<doc>Verifies that current page title equals ``title``.</doc>
+<arguments>
+<arg>Site administration | QVENTUS</arg>
+</arguments>
+<msg timestamp="20181120 19:34:36.175" level="INFO">Page title is 'Site administration | QVENTUS'.</msg>
+<status status="PASS" endtime="20181120 19:34:36.176" starttime="20181120 19:34:36.159"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:36.176" starttime="20181120 19:34:36.158"></status>
+</kw>
+<kw name="Navigate to logout link and click on logout" library="adminhomepageobj">
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>css=.user-tools-welcome-msg</arg>
+</arguments>
+<msg timestamp="20181120 19:34:36.177" level="INFO">Clicking element 'css=.user-tools-welcome-msg'.</msg>
+<status status="PASS" endtime="20181120 19:34:36.317" starttime="20181120 19:34:36.177"></status>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>Log out</arg>
+</arguments>
+<msg timestamp="20181120 19:34:36.318" level="INFO">Clicking link 'Log out'.</msg>
+<status status="PASS" endtime="20181120 19:34:36.829" starttime="20181120 19:34:36.317"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:36.829" starttime="20181120 19:34:36.176"></status>
+</kw>
+<kw name="verify adminlogout page" library="adminloginpageobj">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<doc>Verifies that current page title equals ``title``.</doc>
+<arguments>
+<arg>Logged out | QVENTUS</arg>
+</arguments>
+<msg timestamp="20181120 19:34:36.850" level="INFO">Page title is 'Logged out | QVENTUS'.</msg>
+<status status="PASS" endtime="20181120 19:34:36.850" starttime="20181120 19:34:36.830"></status>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<doc>Verifies that current page contains ``text``.</doc>
+<arguments>
+<arg>Thanks for spending some quality time with the Web site today.</arg>
+</arguments>
+<msg timestamp="20181120 19:34:36.881" level="INFO">Current page contains text 'Thanks for spending some quality time with the Web site today.'.</msg>
+<status status="PASS" endtime="20181120 19:34:36.881" starttime="20181120 19:34:36.850"></status>
+</kw>
+<kw name="Page Should Contain Link" library="SeleniumLibrary">
+<doc>Verifies link identified by ``locator`` is found from current page.</doc>
+<arguments>
+<arg>Log in again</arg>
+</arguments>
+<msg timestamp="20181120 19:34:36.910" level="INFO">Current page contains link 'Log in again'.</msg>
+<status status="PASS" endtime="20181120 19:34:36.910" starttime="20181120 19:34:36.882"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:36.910" starttime="20181120 19:34:36.829"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:36.911" starttime="20181120 19:34:32.085"></status>
+</kw>
+<kw type="teardown" name="End Test" library="admincommon">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20181120 19:34:36.975" starttime="20181120 19:34:36.912"></status>
+</kw>
+<status status="PASS" endtime="20181120 19:34:36.975" starttime="20181120 19:34:36.911"></status>
+</kw>
+<tags>
+<tag>admin-login</tag>
+<tag>regression-test</tag>
+</tags>
+<status status="PASS" endtime="20181120 19:34:36.976" critical="yes" starttime="20181120 19:34:30.026"></status>
+</test>
+<doc>Suite description</doc>
+<status status="PASS" endtime="20181120 19:34:36.978" starttime="20181120 19:33:49.361"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="9">Critical Tests</stat>
+<stat fail="0" pass="9">All Tests</stat>
+</total>
+<tag>
+<stat fail="0" pass="9">admin-login</stat>
+<stat fail="0" pass="3">daily-smoketest</stat>
+<stat fail="0" pass="9">regression-test</stat>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Adminlogin" pass="9">Adminlogin</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

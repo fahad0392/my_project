@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20181120 18:17:33.466" generator="Robot 3.0.4 (Python 2.7.12 on linux2)">
+<suite source="/home/fahad/AnalyticsMD/medengine/robotframework/tests/10__adminlogin.robot" id="s1" name="Adminlogin">
+<test id="s1-t1" name="1__As admin Login with valid user and valid password">
+<kw type="setup" name="Begin Test" library="admincommon">
+<kw name="Open Browser">
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20181120 18:17:33.843" level="FAIL">No keyword with name 'Open Browser' found.</msg>
+<status status="FAIL" endtime="20181120 18:17:33.843" starttime="20181120 18:17:33.843"></status>
+</kw>
+<status status="FAIL" endtime="20181120 18:17:33.843" starttime="20181120 18:17:33.810"></status>
+</kw>
+<kw type="teardown" name="End Test" library="admincommon">
+<kw name="close browser">
+<msg timestamp="20181120 18:17:33.852" level="FAIL">No keyword with name 'close browser' found.</msg>
+<status status="FAIL" endtime="20181120 18:17:33.852" starttime="20181120 18:17:33.852"></status>
+</kw>
+<status status="FAIL" endtime="20181120 18:17:33.852" starttime="20181120 18:17:33.844">No keyword with name 'close browser' found.</status>
+</kw>
+<tags>
+<tag>admin-login</tag>
+<tag>daily-smoketest</tag>
+<tag>regression-test</tag>
+</tags>
+<status status="FAIL" endtime="20181120 18:17:33.852" critical="yes" starttime="20181120 18:17:33.810">Setup failed:
+No keyword with name 'Open Browser' found.
+
+Also teardown failed:
+No keyword with name 'close browser' found.</status>
+</test>
+<test id="s1-t2" name="2__Bad login - Invalid username + Invalid password">
+<kw type="setup" name="Begin Test" library="admincommon">
+<kw name="Open Browser">
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20181120 18:17:33.869" level="FAIL">No keyword with name 'Open Browser' found.</msg>
+<status status="FAIL" endtime="20181120 18:17:33.869" starttime="20181120 18:17:33.869"></status>
+</kw>
+<status status="FAIL" endtime="20181120 18:17:33.869" starttime="20181120 18:17:33.853"></status>
+</kw>
+<kw type="teardown" name="End Test" library="admincommon">
+<kw name="close browser">
+<msg timestamp="20181120 18:17:33.878" level="FAIL">No keyword with name 'close browser' found.</msg>
+<status status="FAIL" endtime="20181120 18:17:33.878" starttime="20181120 18:17:33.878"></status>
+</kw>
+<status status="FAIL" endtime="20181120 18:17:33.878" starttime="20181120 18:17:33.870">No keyword with name 'close browser' found.</status>
+</kw>
+<tags>
+<tag>admin-login</tag>
+<tag>daily-smoketest</tag>
+<tag>regression-test</tag>
+</tags>
+<status status="FAIL" endtime="20181120 18:17:33.878" critical="yes" starttime="20181120 18:17:33.853">Setup failed:
+No keyword with name 'Open Browser' found.
+
+Also teardown failed:
+No keyword with name 'close browser' found.</status>
+</test>
+<test id="s1-t3" name="3__Bad login - Invalid username + valid password">
+<kw type="setup" name="Begin Test" library="admincommon">
+<kw name="Open Browser">
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20181120 18:17:33.887" level="FAIL">No keyword with name 'Open Browser' found.</msg>
+<status status="FAIL" endtime="20181120 18:17:33.887" starttime="20181120 18:17:33.887"></status>
+</kw>
+<status status="FAIL" endtime="20181120 18:17:33.888" starttime="20181120 18:17:33.879"></status>
+</kw>
+<kw type="teardown" name="End Test" library="admincommon">
+<kw name="close browser">
+<msg timestamp="20181120 18:17:33.899" level="FAIL">No keyword with name 'close browser' found.</msg>
+<status status="FAIL" endtime="20181120 18:17:33.899" starttime="20181120 18:17:33.899"></status>
+</kw>
+<status status="FAIL" endtime="20181120 18:17:33.899" starttime="20181120 18:17:33.888">No keyword with name 'close browser' found.</status>
+</kw>
+<tags>
+<tag>admin-login</tag>
+<tag>regression-test</tag>
+</tags>
+<status status="FAIL" endtime="20181120 18:17:33.900" critical="yes" starttime="20181120 18:17:33.879">Setup failed:
+No keyword with name 'Open Browser' found.
+
+Also teardown failed:
+No keyword with name 'close browser' found.</status>
+</test>
+<test id="s1-t4" name="4__Bad login - valid username + Invalid password">
+<kw type="setup" name="Begin Test" library="admincommon">
+<kw name="Open Browser">
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20181120 18:17:33.911" level="FAIL">No keyword with name 'Open Browser' found.</msg>
+<status status="FAIL" endtime="20181120 18:17:33.911" starttime="20181120 18:17:33.911"></status>
+</kw>
+<status status="FAIL" endtime="20181120 18:17:33.911" starttime="20181120 18:17:33.903"></status>
+</kw>
+<kw type="teardown" name="End Test" library="admincommon">
+<kw name="close browser">
+<msg timestamp="20181120 18:17:33.919" level="FAIL">No keyword with name 'close browser' found.</msg>
+<status status="FAIL" endtime="20181120 18:17:33.919" starttime="20181120 18:17:33.919"></status>
+</kw>
+<status status="FAIL" endtime="20181120 18:17:33.920" starttime="20181120 18:17:33.911">No keyword with name 'close browser' found.</status>
+</kw>
+<tags>
+<tag>admin-login</tag>
+<tag>regression-test</tag>
+</tags>
+<status status="FAIL" endtime="20181120 18:17:33.920" critical="yes" starttime="20181120 18:17:33.902">Setup failed:
+No keyword with name 'Open Browser' found.
+
+Also teardown failed:
+No keyword with name 'close browser' found.</status>
+</test>
+<test id="s1-t5" name="5__As admin verify username field is required field">
+<kw type="setup" name="Begin Test" library="admincommon">
+<kw name="Open Browser">
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20181120 18:17:33.928" level="FAIL">No keyword with name 'Open Browser' found.</msg>
+<status status="FAIL" endtime="20181120 18:17:33.929" starttime="20181120 18:17:33.928"></status>
+</kw>
+<status status="FAIL" endtime="20181120 18:17:33.929" starttime="20181120 18:17:33.921"></status>
+</kw>
+<kw type="teardown" name="End Test" library="admincommon">
+<kw name="close browser">
+<msg timestamp="20181120 18:17:33.942" level="FAIL">No keyword with name 'close browser' found.</msg>
+<status status="FAIL" endtime="20181120 18:17:33.942" starttime="20181120 18:17:33.942"></status>
+</kw>
+<status status="FAIL" endtime="20181120 18:17:33.942" starttime="20181120 18:17:33.930">No keyword with name 'close browser' found.</status>
+</kw>
+<tags>
+<tag>admin-login</tag>
+<tag>daily-smoketest</tag>
+<tag>regression-test</tag>
+</tags>
+<status status="FAIL" endtime="20181120 18:17:33.943" critical="yes" starttime="20181120 18:17:33.920">Setup failed:
+No keyword with name 'Open Browser' found.
+
+Also teardown failed:
+No keyword with name 'close browser' found.</status>
+</test>
+<test id="s1-t6" name="6__As admin verify password field is required field">
+<kw type="setup" name="Begin Test" library="admincommon">
+<kw name="Open Browser">
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20181120 18:17:33.951" level="FAIL">No keyword with name 'Open Browser' found.</msg>
+<status status="FAIL" endtime="20181120 18:17:33.951" starttime="20181120 18:17:33.951"></status>
+</kw>
+<status status="FAIL" endtime="20181120 18:17:33.952" starttime="20181120 18:17:33.943"></status>
+</kw>
+<kw type="teardown" name="End Test" library="admincommon">
+<kw name="close browser">
+<msg timestamp="20181120 18:17:33.959" level="FAIL">No keyword with name 'close browser' found.</msg>
+<status status="FAIL" endtime="20181120 18:17:33.959" starttime="20181120 18:17:33.959"></status>
+</kw>
+<status status="FAIL" endtime="20181120 18:17:33.960" starttime="20181120 18:17:33.952">No keyword with name 'close browser' found.</status>
+</kw>
+<tags>
+<tag>admin-login</tag>
+<tag>regression-test</tag>
+</tags>
+<status status="FAIL" endtime="20181120 18:17:33.960" critical="yes" starttime="20181120 18:17:33.943">Setup failed:
+No keyword with name 'Open Browser' found.
+
+Also teardown failed:
+No keyword with name 'close browser' found.</status>
+</test>
+<test id="s1-t7" name="7__As staffuser verify should not have access to admin">
+<kw type="setup" name="Begin Test" library="admincommon">
+<kw name="Open Browser">
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20181120 18:17:33.974" level="FAIL">No keyword with name 'Open Browser' found.</msg>
+<status status="FAIL" endtime="20181120 18:17:33.974" starttime="20181120 18:17:33.973"></status>
+</kw>
+<status status="FAIL" endtime="20181120 18:17:33.974" starttime="20181120 18:17:33.961"></status>
+</kw>
+<kw type="teardown" name="End Test" library="admincommon">
+<kw name="close browser">
+<msg timestamp="20181120 18:17:33.982" level="FAIL">No keyword with name 'close browser' found.</msg>
+<status status="FAIL" endtime="20181120 18:17:33.982" starttime="20181120 18:17:33.982"></status>
+</kw>
+<status status="FAIL" endtime="20181120 18:17:33.982" starttime="20181120 18:17:33.974">No keyword with name 'close browser' found.</status>
+</kw>
+<tags>
+<tag>admin-login</tag>
+<tag>regression-test</tag>
+</tags>
+<status status="FAIL" endtime="20181120 18:17:33.982" critical="yes" starttime="20181120 18:17:33.960">Setup failed:
+No keyword with name 'Open Browser' found.
+
+Also teardown failed:
+No keyword with name 'close browser' found.</status>
+</test>
+<test id="s1-t8" name="8__As Non staffuser verify should not have access to admin">
+<kw type="setup" name="Begin Test" library="admincommon">
+<kw name="Open Browser">
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20181120 18:17:33.991" level="FAIL">No keyword with name 'Open Browser' found.</msg>
+<status status="FAIL" endtime="20181120 18:17:33.991" starttime="20181120 18:17:33.991"></status>
+</kw>
+<status status="FAIL" endtime="20181120 18:17:33.991" starttime="20181120 18:17:33.983"></status>
+</kw>
+<kw type="teardown" name="End Test" library="admincommon">
+<kw name="close browser">
+<msg timestamp="20181120 18:17:34.003" level="FAIL">No keyword with name 'close browser' found.</msg>
+<status status="FAIL" endtime="20181120 18:17:34.004" starttime="20181120 18:17:34.003"></status>
+</kw>
+<status status="FAIL" endtime="20181120 18:17:34.006" starttime="20181120 18:17:33.992">No keyword with name 'close browser' found.</status>
+</kw>
+<tags>
+<tag>admin-login</tag>
+<tag>regression-test</tag>
+</tags>
+<status status="FAIL" endtime="20181120 18:17:34.006" critical="yes" starttime="20181120 18:17:33.983">Setup failed:
+No keyword with name 'Open Browser' found.
+
+Also teardown failed:
+No keyword with name 'close browser' found.</status>
+</test>
+<test id="s1-t9" name="9__Verify admin signout">
+<kw type="setup" name="Begin Test" library="admincommon">
+<kw name="Open Browser">
+<arguments>
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20181120 18:17:34.015" level="FAIL">No keyword with name 'Open Browser' found.</msg>
+<status status="FAIL" endtime="20181120 18:17:34.015" starttime="20181120 18:17:34.015"></status>
+</kw>
+<status status="FAIL" endtime="20181120 18:17:34.015" starttime="20181120 18:17:34.007"></status>
+</kw>
+<kw type="teardown" name="End Test" library="admincommon">
+<kw name="close browser">
+<msg timestamp="20181120 18:17:34.023" level="FAIL">No keyword with name 'close browser' found.</msg>
+<status status="FAIL" endtime="20181120 18:17:34.023" starttime="20181120 18:17:34.023"></status>
+</kw>
+<status status="FAIL" endtime="20181120 18:17:34.024" starttime="20181120 18:17:34.015">No keyword with name 'close browser' found.</status>
+</kw>
+<tags>
+<tag>admin-login</tag>
+<tag>regression-test</tag>
+</tags>
+<status status="FAIL" endtime="20181120 18:17:34.024" critical="yes" starttime="20181120 18:17:34.006">Setup failed:
+No keyword with name 'Open Browser' found.
+
+Also teardown failed:
+No keyword with name 'close browser' found.</status>
+</test>
+<doc>Suite description</doc>
+<status status="FAIL" endtime="20181120 18:17:34.025" starttime="20181120 18:17:33.473"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="9" pass="0">Critical Tests</stat>
+<stat fail="9" pass="0">All Tests</stat>
+</total>
+<tag>
+<stat fail="9" pass="0">admin-login</stat>
+<stat fail="3" pass="0">daily-smoketest</stat>
+<stat fail="9" pass="0">regression-test</stat>
+</tag>
+<suite>
+<stat fail="9" id="s1" name="Adminlogin" pass="0">Adminlogin</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20181120 18:17:33.572" level="ERROR">Error in file '/home/fahad/AnalyticsMD/medengine/robotframework/resources/admin/admincommon.robot': Importing test library 'SeleniumLibrary' failed: ImportError: No module named SeleniumLibrary
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  /usr/local/bin
+  /usr/local/lib/python2.7/dist-packages/schema-0.6.8-py2.7.egg
+  /home/fahad/AnalyticsMD/medengine/src/django-mailer
+  /usr/lib/python2.7
+  /usr/lib/python2.7/plat-x86_64-linux-gnu
+  /usr/lib/python2.7/lib-tk
+  /usr/lib/python2.7/lib-old
+  /usr/lib/python2.7/lib-dynload
+  /home/fahad/.local/lib/python2.7/site-packages
+  /usr/local/lib/python2.7/dist-packages
+  /usr/lib/python2.7/dist-packages
+  /usr/lib/python2.7/dist-packages/wx-2.8-gtk2-unicode</msg>
+<msg timestamp="20181120 18:17:33.664" level="ERROR">Error in file '/home/fahad/AnalyticsMD/medengine/robotframework/resources/admin/pom/adminloginpageobj.robot': Importing test library 'SeleniumLibrary' failed: ImportError: No module named SeleniumLibrary
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  /usr/local/bin
+  /usr/local/lib/python2.7/dist-packages/schema-0.6.8-py2.7.egg
+  /home/fahad/AnalyticsMD/medengine/src/django-mailer
+  /usr/lib/python2.7
+  /usr/lib/python2.7/plat-x86_64-linux-gnu
+  /usr/lib/python2.7/lib-tk
+  /usr/lib/python2.7/lib-old
+  /usr/lib/python2.7/lib-dynload
+  /home/fahad/.local/lib/python2.7/site-packages
+  /usr/local/lib/python2.7/dist-packages
+  /usr/lib/python2.7/dist-packages
+  /usr/lib/python2.7/dist-packages/wx-2.8-gtk2-unicode</msg>
+<msg timestamp="20181120 18:17:33.667" level="ERROR">Error in file '/home/fahad/AnalyticsMD/medengine/robotframework/resources/admin/pom/adminhomepageobj.robot': Importing test library 'SeleniumLibrary' failed: ImportError: No module named SeleniumLibrary
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  /usr/local/bin
+  /usr/local/lib/python2.7/dist-packages/schema-0.6.8-py2.7.egg
+  /home/fahad/AnalyticsMD/medengine/src/django-mailer
+  /usr/lib/python2.7
+  /usr/lib/python2.7/plat-x86_64-linux-gnu
+  /usr/lib/python2.7/lib-tk
+  /usr/lib/python2.7/lib-old
+  /usr/lib/python2.7/lib-dynload
+  /home/fahad/.local/lib/python2.7/site-packages
+  /usr/local/lib/python2.7/dist-packages
+  /usr/lib/python2.7/dist-packages
+  /usr/lib/python2.7/dist-packages/wx-2.8-gtk2-unicode</msg>
+<msg timestamp="20181120 18:17:33.672" level="ERROR">Error in file '/home/fahad/AnalyticsMD/medengine/robotframework/resources/admin/pom/adminleftpaneobj.robot': Importing test library 'SeleniumLibrary' failed: ImportError: No module named SeleniumLibrary
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  /usr/local/bin
+  /usr/local/lib/python2.7/dist-packages/schema-0.6.8-py2.7.egg
+  /home/fahad/AnalyticsMD/medengine/src/django-mailer
+  /usr/lib/python2.7
+  /usr/lib/python2.7/plat-x86_64-linux-gnu
+  /usr/lib/python2.7/lib-tk
+  /usr/lib/python2.7/lib-old
+  /usr/lib/python2.7/lib-dynload
+  /home/fahad/.local/lib/python2.7/site-packages
+  /usr/local/lib/python2.7/dist-packages
+  /usr/lib/python2.7/dist-packages
+  /usr/lib/python2.7/dist-packages/wx-2.8-gtk2-unicode</msg>
+<msg timestamp="20181120 18:17:33.716" level="ERROR">Error in file '/home/fahad/AnalyticsMD/medengine/robotframework/resources/admin/pom/adminmetricspageobj.robot': Importing test library 'SeleniumLibrary' failed: ImportError: No module named SeleniumLibrary
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  /usr/local/bin
+  /usr/local/lib/python2.7/dist-packages/schema-0.6.8-py2.7.egg
+  /home/fahad/AnalyticsMD/medengine/src/django-mailer
+  /usr/lib/python2.7
+  /usr/lib/python2.7/plat-x86_64-linux-gnu
+  /usr/lib/python2.7/lib-tk
+  /usr/lib/python2.7/lib-old
+  /usr/lib/python2.7/lib-dynload
+  /home/fahad/.local/lib/python2.7/site-packages
+  /usr/local/lib/python2.7/dist-packages
+  /usr/lib/python2.7/dist-packages
+  /usr/lib/python2.7/dist-packages/wx-2.8-gtk2-unicode</msg>
+<msg timestamp="20181120 18:17:33.800" level="ERROR">Error in file '/home/fahad/AnalyticsMD/medengine/robotframework/resources/admin/pom/adminuserpageobj.robot': Importing test library 'SeleniumLibrary' failed: ImportError: No module named SeleniumLibrary
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  /usr/local/bin
+  /usr/local/lib/python2.7/dist-packages/schema-0.6.8-py2.7.egg
+  /home/fahad/AnalyticsMD/medengine/src/django-mailer
+  /usr/lib/python2.7
+  /usr/lib/python2.7/plat-x86_64-linux-gnu
+  /usr/lib/python2.7/lib-tk
+  /usr/lib/python2.7/lib-old
+  /usr/lib/python2.7/lib-dynload
+  /home/fahad/.local/lib/python2.7/site-packages
+  /usr/local/lib/python2.7/dist-packages
+  /usr/lib/python2.7/dist-packages
+  /usr/lib/python2.7/dist-packages/wx-2.8-gtk2-unicode</msg>
+<msg timestamp="20181120 18:17:33.808" level="ERROR">Error in file '/home/fahad/AnalyticsMD/medengine/robotframework/tests/10__adminlogin.robot': Importing test library 'SeleniumLibrary' failed: ImportError: No module named SeleniumLibrary
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  /usr/local/bin
+  /usr/local/lib/python2.7/dist-packages/schema-0.6.8-py2.7.egg
+  /home/fahad/AnalyticsMD/medengine/src/django-mailer
+  /usr/lib/python2.7
+  /usr/lib/python2.7/plat-x86_64-linux-gnu
+  /usr/lib/python2.7/lib-tk
+  /usr/lib/python2.7/lib-old
+  /usr/lib/python2.7/lib-dynload
+  /home/fahad/.local/lib/python2.7/site-packages
+  /usr/local/lib/python2.7/dist-packages
+  /usr/lib/python2.7/dist-packages
+  /usr/lib/python2.7/dist-packages/wx-2.8-gtk2-unicode</msg>
+</errors>
+</robot>
