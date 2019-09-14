@@ -92,10 +92,10 @@ WSGI_APPLICATION = 'main.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'my_project',
-        'USER':'root',
-        'PASSWORD':'admin',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'USER': '',
+        'PASSWORD': '',
     }
 }
 
@@ -118,7 +118,7 @@ USE_TZ = True
 STATIC_PATH = os.path.join(BASE_DIR,'main/static')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (STATIC_PATH,)
-TEMPLATE_PATH = os.path.join(BASE_DIR, 'main/templates')
+TEMPLATE_PATH = os.path.join(BASE_DIR, 'garments/templates')
 # Declare the template directories
 TEMPLATE_DIRS = (
     TEMPLATE_PATH,

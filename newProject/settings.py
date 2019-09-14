@@ -59,7 +59,7 @@ WSGI_APPLICATION = 'newProject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.',
         'NAME': 'my_project',
         'USER':'root',
         'PASSWORD':'admin',
@@ -87,7 +87,7 @@ STATIC_PATH = os.path.join(BASE_DIR,'newProject/static')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (STATIC_PATH,)
 TEMPLATE_PATH = os.path.join(BASE_DIR, 'newProject/templates')
-# Declare the template directories
+# Declare the templates directories
 TEMPLATE_DIRS = (
     TEMPLATE_PATH,
     )

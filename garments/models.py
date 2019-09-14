@@ -14,7 +14,7 @@ class Pants(models.Model):
         ('XXL',  'Extra Extra Lage'),
     )
 
-	size = models.CharField(max_length=5, choices=SIZE_CHOICES, default='M')
+	size = models.CharField(max_length=15, choices=SIZE_CHOICES, default='M')
 	color = ColorField(default='#FFF9F0')
 	quantity = models.IntegerField(default=1)
 	purchaseddate = models.DateTimeField(default=datetime.now(), blank=True ,verbose_name = 'Purchased Date')
