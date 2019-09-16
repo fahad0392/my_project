@@ -1,8 +1,9 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib.auth import authenticate
-from garments.models import Pants, Shirts, TShirts
+from garments.models import Pants, Shirts, TShirts, Dashboard
 from django.http import HttpResponse
+from django.shortcuts import redirect
 import json
 import datetime
 import sys
@@ -31,6 +32,7 @@ def logout(request):
 	return render(request, 'login.html')
 
 def charts(request):
+	chartType = request.GET.get('chartType') if request.GET.get('chartType') else 'column'
 	product = request.GET.get('product')
 	product_0bject = str_to_class(product)
 	xfield = request.GET.get('xfield')
@@ -55,7 +57,7 @@ def charts(request):
 
 	text = {'text': yfield.capitalize()}
 	chart = {
-		'chart': {'type': 'column'},
+		'chart': {'type': chartType},
 		'title': {'text': xfield + ' ' + yfield},
 		'xAxis': {'categories': categories},
 		'yAxis': {'title': text},
@@ -64,6 +66,62 @@ def charts(request):
 	print(chart)
 	dump = json.dumps(chart)
 	return HttpResponse(dump, content_type='application/json')
+
+def dashboard(request):
+	print("dashboard")
+	user = request.user
+	print(user)
+	dashboarAll= Dashboard.objects.all()
+	dashboardNameList = []
+	for dashboard in dashboarAll:
+		print(dashboard.user)
+		if user == dashboard.user:
+			dashboardNameList.append(dashboard.name)
+	print(dashboardNameList)
+	context = {
+		"dashboardNameList": dashboardNameList,
+	}
+	return render(request, 'dashboard.html', context)
+
+def adddashboard(request):
+	user = request.user
+	dashboardName = request.GET.get('dashboardName')
+	print("pppppppppppppppppp")
+	chartData = request.GET.get('chartData')
+	print("ccccccccccccc",chartData)
+	try:
+		print("try")
+		dashboardInstance, created = Dashboard.objects.get_or_create(user_id=user.id, name=dashboardName)
+	except Exception as e:
+		print(e)
+	if created:
+		dashboardInstance.user = user
+		data = getattr(dashboardInstance, 'data')
+		print(type(data))
+		data = json.loads(data)
+		data = {'chartData': {chartData}}
+		dashboardInstance.data = data
+
+	else:
+		data = getattr(dashboardInstance, 'data')
+		newdata = data['chartData']
+		print(newdata)
+		newdata.append(chartData)
+		try:
+			data = {'chartData': newdata}
+		except Exception as e:
+			print(e)
+		dashboardInstance.data = data
+	dashboardInstance.save()
+	return HttpResponse("success")
+
+def getadddashboard(request):
+	user = request.user
+	dashboardName = request.GET.get('dashboardName')
+	dashboardInstance = Dashboard.objects.get(name=dashboardName)
+	chartData = dashboardInstance.data
+	chartData = json.dumps(chartData)
+	return HttpResponse(chartData, content_type='application/json')
 
 
 def str_to_class(classname):

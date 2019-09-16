@@ -22,21 +22,39 @@ $('.modal-content').find('#chartSubmit').click(function () {
        var product = $("#selectProduct option:selected" ).val();
        var xfield =  $("#selectX option:selected" ).val();
        var yfield =  $("#selectY option:selected" ).val();
-       debugger;
-      $.ajax({
+       var chartType = ""
+       $('#chartConfig').css("visibility", "visible");
+       $('#chartConfigSelect').css("visibility", "visible");
+       drawChart(product, xfield, yfield, chartType);
+    });
+
+$('#chartConfig').find('#chartConfigSelect').change(function () {
+       var product = $("#selectProduct option:selected" ).val();
+       var xfield =  $("#selectX option:selected" ).val();
+       var yfield =  $("#selectY option:selected" ).val();
+       var chartType = $("#chartConfigSelect option:selected").val()
+       drawChart(product, xfield, yfield, chartType);
+    });
+
+function drawChart(product, xfield, yfield, chartType){
+
+    $.ajax({
         type: 'GET',
         url: '/charts/',
         cache: true,
         data: {
                  'product': product,
                  'xfield': xfield,
-                 'yfield': yfield
+                 'yfield': yfield,
+                 'chartType': chartType
             },
         success: function (result) {
-            $('#myModal').modal('toggle');
+            if(chartType == "")
+                $('#myModal').modal('toggle');
+                $('#chart-div').data('chart', result)
             Highcharts.chart('container', result);
 
         }
       });
 
-    });
+ }

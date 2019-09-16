@@ -1,11 +1,28 @@
 <!DOCTYPE html>
+{% load static %}
+<link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
 {% include 'popup.html' %}
 {% include 'warningPopup.html' %}
+{% include 'profilePopUp.html' %}
+{% include 'addDashboardPopUp.html' %}
+
 <style xmlns:>
 #chart-div{
     margin-left: -16px;
     margin-top: 171px;
+}
+a:hover {
+ cursor:pointer;
+}
+#chartConfig{
+    width: 290px;
+    margin-left: 77px;
+    margin-top: 182px;
+    visibility: hidden;
 
+}
+#chartConfigSelect{
+    visibility: hidden;
 }
 .wrapper {
     display: flex;
@@ -123,19 +140,8 @@ ul ul a {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <title>HOME</title>
-
-    <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 </head>
-
 <body>
     <div class="wrapper">
     <!-- Sidebar -->
@@ -143,19 +149,17 @@ ul ul a {
         <div class="sidebar-header">
             <h3>ETTA FACTORY</h3>
         </div>
-
         <ul class="list-unstyled components" background="#6f7e95">
             <p>DASHBOARD</p>
-            <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-                <ul class="collapse list-unstyled" id="homeSubmenu" background="#6f7e95">
-                    <li>
-                        <a href="#">Home 1</a>
-                    </li>
-                </ul>
+            <li >
+                <a href="{% url 'login' %}" >Home</a>
             </li>
             <li>
-                <a href="#">About</a>
+
+                <a  href="{% url 'dashboard' %}" id="dashboradMenu">Dashboard</a>
+            </li>
+            <li>
+                <a data-toggle="modal" data-target="#myProfileModal" href="#myProfileModal">Profile</a>
             </li>
         </ul>
     </nav>
@@ -177,6 +181,17 @@ ul ul a {
          <div id="chart-div"  style="width: 600px; height: 400px;" >
               {% include 'graph/graph.html' %}
          </div>
+        <div id="chartConfig" >
+            <select id= "chartConfigSelect" class="btn btn-info">
+            <option value="column">Vertical Bar chart</option>
+            <option value="bar">Horizontal Bar Chart</option>
+            <option value="line">Line Chart</option>
+            <option value="area">Area Chart</option>
+            <option value="pie">Pie Chart</option>
+        </select>
+        <div id="addDashboard" style="margin-top: 17px;">
+            <button type="button" class="btn btn-info" id="addDashboardButn" data-toggle="modal" data-target="#myDashboardModal">Add to Dashboard</button></div>
+        </div>
 
 </div>
 
@@ -190,6 +205,8 @@ ul ul a {
 
 <script>
     {% include 'graph/graph.js' %}
+    {% include 'sidebar.js' %}
+    {% include 'dashboard.js' %}
   </script>
 </body>
 

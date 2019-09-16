@@ -3,6 +3,7 @@ from django.contrib.auth.models import User, Group
 from datetime import datetime
 from djmoney.models.fields import MoneyField
 from colorfield.fields import ColorField
+from jsonfield import JSONField
 
 # Create your models here
 class Pants(models.Model):
@@ -80,3 +81,9 @@ class Shorts(models.Model):
 
 	class Meta:
 		verbose_name = 'Short'
+
+
+class Dashboard(models.Model):
+	user = models.ForeignKey(User)
+	name = models.CharField(max_length=30, blank=False)
+	data = JSONField(default='{"chartData":{}}',null=True, blank=True)
