@@ -12,6 +12,8 @@ $('#myDashboardModal').find('#addDashBoardmodal').click(function(){
         success: function (result) {
                 $('#myDashboardModal').modal('toggle');
                 $( "input[name=dashboardName]" ).val('Enter DashBoard Name')
+                $.notify("Chart added to dashboard "+dashboardName+".", "success");
+
         }
       });
 
@@ -35,7 +37,13 @@ function ajaxCall(){
 
 }
 function drowDashboard(chartData){
-    for(var x = 0; chartData.chartData.length; x++){
+    var containerDiv = $('.wrapper').find('#DashboardChartDiv').find('.highcharts-container')
+    if(containerDiv.length > 0){
+        for(var z = 0; z < containerDiv.length; z++){
+            containerDiv[z].remove()
+        }
+    }
+    for(var x = 0; x < chartData.chartData.length; x++){
           data = JSON.parse(chartData.chartData[x])
           $('.wrapper').find('#DashboardChartDiv').data('chart', data)
           $('.wrapper').find('#DashboardChartDiv').append('<div class="col-sm-6" id="container'+x+'"></div')

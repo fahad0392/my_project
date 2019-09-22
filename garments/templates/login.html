@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-{% load staticfiles %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+<script src="{% static 'bootstrap.min.js' %}"></script>
+<script src="{% static 'jquery.min.js' %}"></script>
 <style>
     html {
   background-color: #56baed;
@@ -301,11 +304,11 @@ input[type=password]:placeholder {
                 <!-- Icon -->
                     <div class="">
                     <!--<div class="fadeIn first">-->
-                    <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+<!--                    <img src="{% static 'images/logo.png' %}" id="icon" alt="User Icon" />-->
                 </div>
 
                 <!-- Login Form -->
-                <form action='/home/' method='post'> {% csrf_token %}
+                <form action='/home/' method='post' style="margin-top: 25px;"> {% csrf_token %}
                     <input type="text" id="login" class="fadeIn second" name="username" placeholder="login">
                     <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
                     <input type="submit" class="fadeIn fourth">
@@ -320,6 +323,3 @@ input[type=password]:placeholder {
         </div>
     </body>
 </html>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

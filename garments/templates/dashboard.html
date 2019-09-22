@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
 <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+<script src="{% static 'jquery.min.js' %}"></script>
 {% include 'profilePopUp.html' %}
 
 <style xmlns:>
@@ -140,12 +141,8 @@ ul ul a {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="{% static 'highcharts.src.js' %}"></script>
+    <script src="{% static 'exporting.src.js' %}"></script>
     <title>HOME</title>
 </head>
 <body>
@@ -164,7 +161,8 @@ ul ul a {
                 <a href="{% url 'dashboard' %}" id="dashboradMenu">Dashboard</a>
             </li>
             <li>
-                <a data-toggle="modal" data-target="#myProfileModal" href="#myProfileModal">Profile</a>
+                <a href="#" id="profiletag" data-toggle="modal" data-target="#myProfileModal">Profile</a>
+<!--                <a data-toggle="modal" data-target="#myProfileModal" href="#myProfileModal">Profile</a>-->
             </li>
         </ul>
     </nav>
@@ -179,16 +177,10 @@ ul ul a {
         </div>
     </div>
 </div>
-    <>
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<!--    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
-    <!-- Popper.JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-
+<!--    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>-->
+    <script src="{% static 'bootstrap.min.js' %}"></script>
 <script>
         {% include 'dashboard.js' %}
          var dashboardName = {{dashboardNameList|safe}}
@@ -199,6 +191,8 @@ ul ul a {
                 }));
           });
         ajaxCall();
+        {% include 'home.js' %}
+        {% include 'graph/graph.js' %}
   </script>
 </body>
 

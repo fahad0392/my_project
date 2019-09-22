@@ -49,6 +49,14 @@ function drawChart(product, xfield, yfield, chartType){
                  'chartType': chartType
             },
         success: function (result) {
+//            if(chartType == "pie"){
+//                 result.plotOptions.pie.dataLabels.push({
+//                    formatter:
+//                            function(){
+//                                return '<div>'+Math.round(this.percentage)+'%</div>'
+//                            }
+//                 })
+//                }
             if(chartType == "")
                 $('#myModal').modal('toggle');
                 $('#chart-div').data('chart', result)

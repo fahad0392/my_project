@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 {% load static %}
 <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+<script src="{% static 'bootstrap.min.js' %}"></script>
+<script src="{% static 'jquery.min.js' %}"></script>
+<script src="{% static 'notify.js' %}"></script>
 {% include 'popup.html' %}
 {% include 'warningPopup.html' %}
 {% include 'profilePopUp.html' %}
 {% include 'addDashboardPopUp.html' %}
+
 
 <style xmlns:>
 #chart-div{
@@ -159,7 +163,7 @@ ul ul a {
                 <a  href="{% url 'dashboard' %}" id="dashboradMenu">Dashboard</a>
             </li>
             <li>
-                <a data-toggle="modal" data-target="#myProfileModal" href="#myProfileModal">Profile</a>
+                <a href="#" id="profiletag" data-toggle="modal" data-target="#myProfileModal">Profile</a>
             </li>
         </ul>
     </nav>
@@ -179,6 +183,7 @@ ul ul a {
 
 </div>
          <div id="chart-div"  style="width: 600px; height: 400px;" >
+
               {% include 'graph/graph.html' %}
          </div>
         <div id="chartConfig" >
@@ -195,19 +200,13 @@ ul ul a {
 
 </div>
 
-    <!-- jQuery CDN - Slim version (=without AJAX) -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<!--    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
-    <!-- Popper.JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-
-<script>
-    {% include 'graph/graph.js' %}
-    {% include 'sidebar.js' %}
-    {% include 'dashboard.js' %}
-  </script>
+    <script src="{% static 'bootstrap.min.js' %}"></script>
+    <script>
+        {% include 'graph/graph.js' %}
+        {% include 'sidebar.js' %}
+        {% include 'dashboard.js' %}
+        {% include 'home.js' %}
+    </script>
 </body>
 
 </html>

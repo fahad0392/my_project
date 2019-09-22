@@ -2,11 +2,13 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib.auth import authenticate
 from garments.models import Pants, Shirts, TShirts, Dashboard
+from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.shortcuts import redirect
 import json
 import datetime
 import sys
+from django.apps import apps
 
 def user_login(request):
 	return render(request, 'login.html')
@@ -39,8 +41,8 @@ def charts(request):
 	yfield = request.GET.get('yfield')
 	categories = []
 	data = []
-	pants = product_0bject.objects.all()
-	for filedVal in pants:
+	modelObject = product_0bject.objects.all()
+	for filedVal in modelObject:
 		if xfield.strip() == 'purchaseddate':
 			categories.append((getattr(filedVal, xfield)).strftime("%d %b"))
 		elif xfield.strip() == 'price':
@@ -61,7 +63,10 @@ def charts(request):
 		'title': {'text': xfield + ' ' + yfield},
 		'xAxis': {'categories': categories},
 		'yAxis': {'title': text},
-		'series': [{'name': product, 'data': data}]
+		'series': [{'name': product, 'data': data}],
+		'plotOptions': {chartType: {
+			'dataLabels': {'enabled': 'true'}
+		}}
 	}
 	print(chart)
 	dump = json.dumps(chart)
@@ -111,18 +116,43 @@ def adddashboard(request):
 			data = {'chartData': newdata}
 		except Exception as e:
 			print(e)
+		print("updated",data)
 		dashboardInstance.data = data
+	print("===================sss1")
 	dashboardInstance.save()
+	print("===================sss2")
 	return HttpResponse("success")
 
 def getadddashboard(request):
 	user = request.user
 	dashboardName = request.GET.get('dashboardName')
-	dashboardInstance = Dashboard.objects.get(name=dashboardName)
+	dashboardInstance = Dashboard.objects.get(name=dashboardName, user_id=user.id)
 	chartData = dashboardInstance.data
 	chartData = json.dumps(chartData)
 	return HttpResponse(chartData, content_type='application/json')
 
+# def getproduct(request):
+# 	modelsNmae = apps.get_app_config('garments').get_models()
+# 	print(modelsNmae)
+# 	for model in modelsNmae:
+# 		#modelinstance = str_to_class(model.capitalize())
+# 		modelFiledList = [f.name for f in model._meta.get_fields()]
+# 	print(modelsNmae)
+# 	print(modelFiledList)
+# 	return HttpResponse("success")
+
+
+
+def getprofile(request):
+	user = request.user
+	data = {
+		"first_name": user.first_name,
+		"last_name": user.last_name,
+		"email": user.email
+	}
+	data = json.dumps(data)
+	return HttpResponse(data, content_type='application/json')
+
 
 def str_to_class(classname):
-    return getattr(sys.modules[__name__], classname)
+	return getattr(sys.modules[__name__], classname)

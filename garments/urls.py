@@ -10,5 +10,7 @@ urlpatterns = [
         url(r'^dashboard/$', views.dashboard, name='dashboard'),
         url(r'^adddashboard/$', views.adddashboard, name='adddashboard'),
         url(r'^getadddashboard/$', views.getadddashboard, name='getadddashboard'),
+        url('^getprofile/$', views.getprofile, name='getprofile'),
+        # url('^getproduct/$', views.getproduct, name='getproduct')
         # url(r'^dashboard/', TemplateView.as_view(template_name='dashboard.html'),name='dashboard'),
 ]
