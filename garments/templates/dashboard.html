@@ -2,6 +2,7 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
 <script src="{% static 'jquery.min.js' %}"></script>
+<script src="https://kit.fontawesome.com/5c6781967d.js" crossorigin="anonymous"></script>
 {% include 'profilePopUp.html' %}
 
 <style xmlns:>
@@ -155,24 +156,26 @@ ul ul a {
         <ul class="list-unstyled components" background="#6f7e95">
             <p>DASHBOARD</p>
             <li >
-                <a href="{% url 'login' %}" >Home</a>
+                <a href="{% url 'login' %}" ><i class="fas fa-home"></i> Home</a>
             </li>
             <li>
-                <a href="{% url 'dashboard' %}" id="dashboradMenu">Dashboard</a>
+                <a href="{% url 'dashboard' %}" id="dashboradMenu"> <i class="fas fa-chart-bar"></i> Dashboard</a>
             </li>
             <li>
-                <a href="#" id="profiletag" data-toggle="modal" data-target="#myProfileModal">Profile</a>
+                <a href="#" id="profiletag" data-toggle="modal" data-target="#myProfileModal"><i class="fas fa-users"></i> Profile</a>
 <!--                <a data-toggle="modal" data-target="#myProfileModal" href="#myProfileModal">Profile</a>-->
             </li>
         </ul>
     </nav>
     <div class="container-fluid">
         <div id="dashboardSection" class="row">
-            <select id= "selectDashboard" class="btn btn-info" style="height: 34px;margin-left: 100px;margin-top: 4px;width: 127px;"">
-
+            <select id= "selectDashboard" class="btn btn-info" style="height: 34px;margin-left: 100px;margin-top: 4px;width: 127px;">
+                {% for dashboardName in dashboardNameList %}
+                    <option value={{dashboardName}}>{{dashboardName}}</option>
+                {% endfor %}
             </select>
         </div>
-        <div id="DashboardChartDiv" class="row">
+        <div id="DashboardChartDiv" class="row" style="overflow: auto;max-height: 500px">
             {% include 'dashboardGraph.html' %}
         </div>
     </div>
@@ -183,13 +186,13 @@ ul ul a {
     <script src="{% static 'bootstrap.min.js' %}"></script>
 <script>
         {% include 'dashboard.js' %}
-         var dashboardName = {{dashboardNameList|safe}}
-         $.each(dashboardName, function (i, item) {
-                $('#dashboardSection').find('#selectDashboard').append($('<option>', {
-                    value: item,
-                    text : item
-                }));
-          });
+<!--         var dashboardName = {{dashboardNameList|safe}}-->
+<!--         $.each(dashboardName, function (i, item) {-->
+<!--                $('#dashboardSection').find('#selectDashboard').append($('<option>', {-->
+<!--                    value: item,-->
+<!--                    text : item-->
+<!--                }));-->
+<!--          });-->
         ajaxCall();
         {% include 'home.js' %}
         {% include 'graph/graph.js' %}

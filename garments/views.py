@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib.auth import authenticate
 from garments.models import Pants, Shirts, TShirts, Dashboard
+from garments.forms import SignUpForm
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.shortcuts import redirect
@@ -9,13 +10,50 @@ import json
 import datetime
 import sys
 from django.apps import apps
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 def user_login(request):
 	return render(request, 'login.html')
 
 
+def signupform(request):
+	print("==========================form")
+	form = SignUpForm(request.POST)
+	print(form.is_valid())
+	if form.is_valid():
+		# form.save()
+		username = form.cleaned_data.get('username')
+		print(username)
+		password = form.cleaned_data.get('password1')
+		password = form.cleaned_data.get('password2')
+		print(password)
+		email = form.cleaned_data.get('email')
+		print(email)
+		user = authenticate(username=username, password=password)
+		print(user)
+	return render(request, 'signup.html', {'form':form})
+
+def signup(request):
+	print(request)
+	form = SignUpForm(request.POST)
+	print(form.is_valid())
+	if form.is_valid():
+		form.save()
+		username = form.cleaned_data.get('username')
+		print(username)
+		password = form.cleaned_data.get('password1')
+		print(password)
+		email = form.cleaned_data.get('email')
+		print(email)
+		user = authenticate(username=username, password=password)
+		print(user)
+	return render(request, 'login.html')
+
+
 
 # Login
+# @login_required(login_url="")
 def home(request):
 	print(request)
 	if request.method == 'POST':

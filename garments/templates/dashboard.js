@@ -12,6 +12,7 @@ $('#myDashboardModal').find('#addDashBoardmodal').click(function(){
         success: function (result) {
                 $('#myDashboardModal').modal('toggle');
                 $( "input[name=dashboardName]" ).val('Enter DashBoard Name')
+//                showNotification("success", "Chart added to dashboard "+dashboardName+".")
                 $.notify("Chart added to dashboard "+dashboardName+".", "success");
 
         }

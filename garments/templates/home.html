@@ -4,6 +4,12 @@
 <script src="{% static 'bootstrap.min.js' %}"></script>
 <script src="{% static 'jquery.min.js' %}"></script>
 <script src="{% static 'notify.js' %}"></script>
+<script src="{% static 'jquery_all_plugins.js' %}"></script>
+<script src="https://kit.fontawesome.com/5c6781967d.js" crossorigin="anonymous"></script>
+
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.css"></script>-->
+<!--<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">-->
+
 {% include 'popup.html' %}
 {% include 'warningPopup.html' %}
 {% include 'profilePopUp.html' %}
@@ -156,14 +162,14 @@ ul ul a {
         <ul class="list-unstyled components" background="#6f7e95">
             <p>DASHBOARD</p>
             <li >
-                <a href="{% url 'login' %}" >Home</a>
+                <a href="{% url 'login' %}" > <i class="fas fa-home"></i> Home</a>
             </li>
             <li>
 
-                <a  href="{% url 'dashboard' %}" id="dashboradMenu">Dashboard</a>
+                <a  href="{% url 'dashboard' %}" id="dashboradMenu"><i class="fas fa-chart-bar"></i> Dashboard</a>
             </li>
             <li>
-                <a href="#" id="profiletag" data-toggle="modal" data-target="#myProfileModal">Profile</a>
+                <a href="#" id="profiletag" data-toggle="modal" data-target="#myProfileModal"> <i class="fas fa-users"></i> Profile</a>
             </li>
         </ul>
     </nav>
@@ -176,7 +182,7 @@ ul ul a {
             </button>
         </div>
         <div id="logoutDiv" class="container-fluid">
-            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#warningPopUp">Logout</button>
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#warningPopUp"><i class="fas fa-sign-out-alt"></i> Logout</button>
         </div>
     </nav>
 
@@ -206,6 +212,7 @@ ul ul a {
         {% include 'sidebar.js' %}
         {% include 'dashboard.js' %}
         {% include 'home.js' %}
+        {% include 'notifications.js' %}
     </script>
 </body>
 
